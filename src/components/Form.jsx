@@ -1,18 +1,19 @@
 import { useContext, useRef } from 'react';
 import { DataContext } from '../context/DataContext';
 
-const LEVELS = {
-  HIGH: 'High',
-  MEDIUM: 'Medium',
-  LOW: 'Low',
+export const LEVELS = {
+  HIGH: 'Alta',
+  MEDIUM: 'Media',
+  LOW: 'Baja',
 };
 
 export const Form = () => {
   const titleRef = useRef();
   const taskRef = useRef();
   const selectRef = useRef();
+  const filterSelectRef = useRef();
 
-  const { state, dispatch } = useContext(DataContext);
+  const { state, dispatch, setFilter } = useContext(DataContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,16 +27,34 @@ export const Form = () => {
     });
   };
 
+  const handleFilterChange = () => {
+    setFilter(filterSelectRef.current.value);
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" ref={titleRef} />
-      <input type="text" ref={taskRef} />
-      <button type="submit">Crear tarea</button>
-      <select ref={selectRef}>
+    <>
+      <form onSubmit={handleSubmit}>
+        <label for="title">Título</label>
+        <input type="text" name="title" ref={titleRef} />
+        <br />
+        <label for="task">Tarea:</label>
+        <input type="text" name="task" ref={taskRef} />
+        <br />
+        <label for="prioritySelect">Prioridad:</label>
+        <select name="prioritySelect" ref={selectRef}>
+          <option value={LEVELS.HIGH}>ALTA</option>
+          <option value={LEVELS.MEDIUM}>MEDIA</option>
+          <option value={LEVELS.LOW}>BAJA</option>
+        </select>
+        <br />
+        <button type="submit">Crear tarea</button>
+      </form>
+      <select ref={filterSelectRef} onChange={handleFilterChange}>
+        <option value="ALL">TODAS</option>
         <option value={LEVELS.HIGH}>ALTA</option>
         <option value={LEVELS.MEDIUM}>MEDIA</option>
         <option value={LEVELS.LOW}>BAJA</option>
       </select>
-    </form>
+    </>
   );
 };
