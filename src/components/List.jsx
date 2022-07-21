@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { DataContext } from '../context/DataContext';
 import { LEVELS } from './Form';
+import { v4 as uuid } from 'uuid';
 
 export const List = () => {
   const { state, filter } = useContext(DataContext);
@@ -8,7 +9,7 @@ export const List = () => {
     case 'ALL': {
       return state.map((todo) => {
         return (
-          <>
+          <div key={uuid()}>
             <p>
               <strong>Título:</strong> {todo.title}
             </p>
@@ -18,7 +19,7 @@ export const List = () => {
             <p>
               <strong>Prioridad:</strong> {todo.priority}
             </p>
-          </>
+          </div>
         );
       });
     }
@@ -27,7 +28,7 @@ export const List = () => {
       const filtered = newState.filter((todo) => todo.priority === LEVELS.LOW);
       return filtered.map((todo) => {
         return (
-          <>
+          <div key={uuid()}>
             <p>
               <strong>Título:</strong> {todo.title}
             </p>
@@ -37,7 +38,7 @@ export const List = () => {
             <p>
               <strong>Prioridad:</strong> {todo.priority}
             </p>
-          </>
+          </div>
         );
       });
     }
@@ -48,7 +49,7 @@ export const List = () => {
       );
       return filtered.map((todo) => {
         return (
-          <>
+          <div key={uuid()}>
             <p>
               <strong>Título:</strong> {todo.title}
             </p>
@@ -58,7 +59,7 @@ export const List = () => {
             <p>
               <strong>Prioridad:</strong> {todo.priority}
             </p>
-          </>
+          </div>
         );
       });
     }
@@ -67,7 +68,7 @@ export const List = () => {
       const filtered = newState.filter((todo) => todo.priority === LEVELS.HIGH);
       return filtered.map((todo) => {
         return (
-          <>
+          <div key={uuid()}>
             <p>
               <strong>Título:</strong> {todo.title}
             </p>
@@ -77,7 +78,7 @@ export const List = () => {
             <p>
               <strong>Prioridad:</strong> {todo.priority}
             </p>
-          </>
+          </div>
         );
       });
     }

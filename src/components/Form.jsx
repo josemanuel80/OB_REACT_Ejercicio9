@@ -13,7 +13,7 @@ export const Form = () => {
   const selectRef = useRef();
   const filterSelectRef = useRef();
 
-  const { state, dispatch, setFilter } = useContext(DataContext);
+  const { dispatch, setFilter } = useContext(DataContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -34,13 +34,13 @@ export const Form = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label for="title">Título</label>
+        <label htmlFor="title">Título</label>
         <input type="text" name="title" ref={titleRef} />
         <br />
-        <label for="task">Tarea:</label>
+        <label htmlFor="task">Tarea:</label>
         <input type="text" name="task" ref={taskRef} />
         <br />
-        <label for="prioritySelect">Prioridad:</label>
+        <label htmlFor="prioritySelect">Prioridad:</label>
         <select name="prioritySelect" ref={selectRef}>
           <option value={LEVELS.HIGH}>ALTA</option>
           <option value={LEVELS.MEDIUM}>MEDIA</option>
