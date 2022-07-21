@@ -15,12 +15,15 @@ export const List = () => {
     case 'ALL': {
       return state.map((todo) => {
         return (
-          <div key={uuid()}>
+          <div key={uuid()} className="item">
+            <p>
+              <strong>Tarea numero:</strong> {todo.id + 1}
+            </p>
             <p>
               <strong>Título:</strong> {todo.title}
             </p>
             <p>
-              <strong>Tarea:</strong> {todo.task}
+              <strong>Descripción de la tarea:</strong> {todo.task}
             </p>
             <p>
               <strong>Prioridad:</strong> {todo.priority}
@@ -37,7 +40,10 @@ export const List = () => {
       const filtered = newState.filter((todo) => todo.priority === LEVELS.LOW);
       return filtered.map((todo) => {
         return (
-          <div key={uuid()}>
+          <div key={uuid()} className="item">
+            <p>
+              <strong>Tarea numero:</strong> {todo.id + 1}
+            </p>
             <p>
               <strong>Título:</strong> {todo.title}
             </p>
@@ -61,7 +67,10 @@ export const List = () => {
       );
       return filtered.map((todo) => {
         return (
-          <div key={uuid()}>
+          <div key={uuid()} className="item">
+            <p>
+              <strong>Tarea numero:</strong> {todo.id + 1}
+            </p>
             <p>
               <strong>Título:</strong> {todo.title}
             </p>
@@ -83,7 +92,10 @@ export const List = () => {
       const filtered = newState.filter((todo) => todo.priority === LEVELS.HIGH);
       return filtered.map((todo) => {
         return (
-          <div key={uuid()}>
+          <div key={uuid()} className="item">
+            <p>
+              <strong>Tarea numero:</strong> {todo.id + 1}
+            </p>
             <p>
               <strong>Título:</strong> {todo.title}
             </p>

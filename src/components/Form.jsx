@@ -35,29 +35,61 @@ export const Form = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="title">Título</label>
-        <input type="text" name="title" ref={titleRef} />
-        <br />
-        <label htmlFor="task">Tarea:</label>
-        <input type="text" name="task" ref={taskRef} />
-        <br />
-        <label htmlFor="prioritySelect">Prioridad:</label>
-        <select name="prioritySelect" ref={selectRef}>
-          <option value={LEVELS.HIGH}>ALTA</option>
-          <option value={LEVELS.MEDIUM}>MEDIA</option>
-          <option value={LEVELS.LOW}>BAJA</option>
-        </select>
-        <br />
-        <button type="submit">Crear tarea</button>
-      </form>
-      <label htmlFor="filterSelect">Filtrar por prioridad </label>
-      <select ref={filterSelectRef} onChange={handleFilterChange}>
-        <option value="ALL">TODAS</option>
-        <option value={LEVELS.HIGH}>ALTA</option>
-        <option value={LEVELS.MEDIUM}>MEDIA</option>
-        <option value={LEVELS.LOW}>BAJA</option>
-      </select>
+      <div className="title">
+        <h2>SUS TAREAS</h2>
+      </div>
+      <div className="form">
+        <form onSubmit={handleSubmit}>
+          <label className="labels" htmlFor="title">
+            Título
+          </label>
+          <input
+            className="form-control"
+            type="text"
+            name="title"
+            ref={titleRef}
+          />
+          <br />
+          <label className="labels" htmlFor="task">
+            Tarea
+          </label>
+          <input
+            className="form-control"
+            type="text"
+            name="task"
+            ref={taskRef}
+          />
+          <br />
+          <label className="labels" htmlFor="prioritySelect">
+            Prioridad
+          </label>
+          <select className="form-select" name="prioritySelect" ref={selectRef}>
+            <option value={LEVELS.HIGH}>ALTA</option>
+            <option value={LEVELS.MEDIUM}>MEDIA</option>
+            <option value={LEVELS.LOW}>BAJA</option>
+          </select>
+          <br />
+          <button className="btn btn-primary" type="submit">
+            Crear tarea
+          </button>
+        </form>
+        <div>
+          <label className="labels" htmlFor="filterSelect">
+            Filtrar por prioridad{' '}
+          </label>
+          <select
+            className="form-select"
+            name="filterSelect"
+            ref={filterSelectRef}
+            onChange={handleFilterChange}
+          >
+            <option value="ALL">TODAS</option>
+            <option value={LEVELS.HIGH}>ALTA</option>
+            <option value={LEVELS.MEDIUM}>MEDIA</option>
+            <option value={LEVELS.LOW}>BAJA</option>
+          </select>
+        </div>
+      </div>
     </>
   );
 };
