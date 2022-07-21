@@ -17,9 +17,7 @@
 
   overflow: auto;
 }
-.textarea {
-  overflow: hidden;
-}
+
 .title {
   width: 100vw;
   margin: 1rem;

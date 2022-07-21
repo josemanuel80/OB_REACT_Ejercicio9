@@ -75,7 +75,7 @@ export const Form = () => {
         </form>
         <div>
           <label className="labels" htmlFor="filterSelect">
-            Filtrar por prioridad{' '}
+            Filtrar por prioridad
           </label>
           <select
             className="form-select"
