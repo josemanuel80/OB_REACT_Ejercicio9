@@ -4,22 +4,34 @@ import { LEVELS } from './Form';
 import { v4 as uuid } from 'uuid';
 
 export const List = () => {
-  const { state, filter } = useContext(DataContext);
+  const handleDelete = (event) => {
+    event.preventDefault();
+    const id = event.currentTarget.id;
+    console.log(id);
+    dispatch({ type: 'DELETE_TASK', payload: { id } });
+  };
+
+  const { state, filter, dispatch } = useContext(DataContext);
   switch (filter) {
     case 'ALL': {
       return state.map((todo) => {
         return (
-          <div key={uuid()}>
-            <p>
-              <strong>Título:</strong> {todo.title}
-            </p>
-            <p>
-              <strong>Tarea:</strong> {todo.task}
-            </p>
-            <p>
-              <strong>Prioridad:</strong> {todo.priority}
-            </p>
-          </div>
+          <>
+            <div key={uuid()}>
+              <p>
+                <strong>Título:</strong> {todo.title}
+              </p>
+              <p>
+                <strong>Tarea:</strong> {todo.task}
+              </p>
+              <p>
+                <strong>Prioridad:</strong> {todo.priority}
+              </p>
+            </div>
+            <button id={todo.id} onClick={handleDelete}>
+              Eliminar
+            </button>
+          </>
         );
       });
     }

@@ -1,7 +1,7 @@
 export const initialState = [];
 
+let newId = 0;
 export const todoReducer = (state, action) => {
-  let newId = 0;
   switch (action.type) {
     case 'CREATE_TODO': {
       return [
@@ -13,6 +13,13 @@ export const todoReducer = (state, action) => {
           priority: action.payload.priority,
         },
       ];
+    }
+    case 'DELETE_TASK': {
+      const newState = [...state];
+      const filtered = newState.filter(
+        (todo) => todo.id !== parseInt(action.payload.id),
+      );
+      return filtered;
     }
     default:
       return state;

@@ -25,6 +25,8 @@ export const Form = () => {
         priority: selectRef.current.value,
       },
     });
+    titleRef.current.value = '';
+    taskRef.current.value = '';
   };
 
   const handleFilterChange = () => {
