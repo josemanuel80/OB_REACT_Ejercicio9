@@ -7,7 +7,6 @@ export const List = () => {
   const handleDelete = (event) => {
     event.preventDefault();
     const id = event.currentTarget.id;
-    console.log(id);
     dispatch({ type: 'DELETE_TASK', payload: { id } });
   };
 
@@ -16,22 +15,20 @@ export const List = () => {
     case 'ALL': {
       return state.map((todo) => {
         return (
-          <>
-            <div key={uuid()}>
-              <p>
-                <strong>Título:</strong> {todo.title}
-              </p>
-              <p>
-                <strong>Tarea:</strong> {todo.task}
-              </p>
-              <p>
-                <strong>Prioridad:</strong> {todo.priority}
-              </p>
-            </div>
+          <div key={uuid()}>
+            <p>
+              <strong>Título:</strong> {todo.title}
+            </p>
+            <p>
+              <strong>Tarea:</strong> {todo.task}
+            </p>
+            <p>
+              <strong>Prioridad:</strong> {todo.priority}
+            </p>
             <button id={todo.id} onClick={handleDelete}>
               Eliminar
             </button>
-          </>
+          </div>
         );
       });
     }
@@ -50,6 +47,9 @@ export const List = () => {
             <p>
               <strong>Prioridad:</strong> {todo.priority}
             </p>
+            <button id={todo.id} onClick={handleDelete}>
+              Eliminar
+            </button>
           </div>
         );
       });
@@ -71,6 +71,9 @@ export const List = () => {
             <p>
               <strong>Prioridad:</strong> {todo.priority}
             </p>
+            <button id={todo.id} onClick={handleDelete}>
+              Eliminar
+            </button>
           </div>
         );
       });
@@ -90,6 +93,9 @@ export const List = () => {
             <p>
               <strong>Prioridad:</strong> {todo.priority}
             </p>
+            <button id={todo.id} onClick={handleDelete}>
+              Eliminar
+            </button>
           </div>
         );
       });

@@ -51,6 +51,7 @@ export const Form = () => {
         <br />
         <button type="submit">Crear tarea</button>
       </form>
+      <label htmlFor="filterSelect">Filtrar por prioridad </label>
       <select ref={filterSelectRef} onChange={handleFilterChange}>
         <option value="ALL">TODAS</option>
         <option value={LEVELS.HIGH}>ALTA</option>
