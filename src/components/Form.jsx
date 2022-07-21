@@ -2,9 +2,9 @@ import { useContext, useRef } from 'react';
 import { DataContext } from '../context/DataContext';
 
 const LEVELS = {
-  HIGH: 'HIGH',
-  MEDIUM: 'MEDIUM',
-  LOW: 'LOW',
+  HIGH: 'High',
+  MEDIUM: 'Medium',
+  LOW: 'Low',
 };
 
 export const Form = () => {
